@@ -1,0 +1,32 @@
+<p>New Developer</p>
+<form [formGroup]="developerForm" (ngSubmit)="onRegistered()">
+  <label for="firstName"> Insert First Name </label>
+  <input id="firstName" type="text" formControlName="firstName">
+  @if (developerForm.get('firstName')?.touched && developerForm.get('firstName')?.invalid){
+    @if (developerForm.get('firstName')?.hasError('required')){
+      <div>FirstName is required</div>
+    }
+    @if(developerForm.get('firstName')?.hasError('minLength')){
+      <div>FirstName must be at least 2 characters long</div>
+    }
+  }
+
+  <label for="last-name"> LastName</label>
+  <input id="last-name" type="text" formControlName="lastName">
+  @if (developerForm.get('lastName')?.touched && developerForm.get('lastName')?.invalid){
+    @if (developerForm.get('lastName')?.hasError('required')){
+      <div>LastName is required</div>
+    }
+    @if(developerForm.get('lastName')?.hasError('minLength')){
+      <div>FirstName must be at least 2 characters long</div>
+    }
+  }
+
+  <div>
+    <button type="submit" [disabled]="developerForm.invalid">Register</button>
+    <button type="button" (click)="onLater()">Later</button>
+    <button type="button" (click)="onClear()">Clear</button>
+  </div>
+
+
+</form>
