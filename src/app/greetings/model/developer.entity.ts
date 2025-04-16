@@ -7,7 +7,7 @@ export class Developer{
     this._lastName = lastName;
   }
 
-  public get fullName():string { return `${this._firstName}, ${this._lastName}` };
+  public get fullName():string { return `${this._firstName} ${this._lastName}` };
 
 
 
